@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JSteCheck</title>
+    <link rel="stylesheet" href="index.css"/>
+    <link rel="icon" href="logo.svg" type="image/svg+xml">
+    <link rel="icon" href="logo_128x128.webp" type="image/webp">
+    <link rel="icon" href="logo_128x128.png" type="image/png">
+    <link rel="icon" href="destroyed.jpg" type="image/jpeg">
+</head>
+<body>
+<div id="main">
+    <picture id="logo">
+        <source srcset="logo.svg" type="image/svg+xml" width="256" height="256">
+        <source srcset="logo_512x512.webp" type="image/webp" width="256" height="256" media="(min-width: 601px)">
+        <source srcset="logo_128x128.webp" type="image/webp" width="256" height="256" media="(max-width: 600px)">
+        <source srcset="logo_512x512.png" type="image/png" width="256" height="256" media="(min-width: 601px)">
+        <source srcset="logo_128x128.png" type="image/png" width="256" height="256" media="(max-width: 600px)">
+        <img src="destroyed.jpg" alt="" width="128" height="128" style="width: 256px; height: auto;">
+    </picture>
+    <h1>JSteCheck v1.0.0</h1>
+
+    <div class="horizontal">
+        <div class="vertical">
+            <label for="code1">First code</label><textarea id="code1" rows="10" cols="50"></textarea>
+        </div>
+        <div class="vertical">
+            <label for="code2">Second code</label><textarea id="code2" rows="10" cols="50"></textarea>
+        </div>
+    </div>
+    <div class="horizontal">
+        <div class="vertical">
+            <label for="amount">Amount of samples to run & check: </label><input type="number" id="amount"
+                                                                                 value="48000"/>
+        </div>
+        <div class="vertical">
+            <label for="type">Type: </label><select id="type">
+            <option value="bb" selected>Bytebeat</option>
+            <option value="sbb">Signed Bytebeat</option>
+            <option value="fb">Floatbeat</option>
+        </select>
+        </div>
+    </div>
+    <div id="button-container">
+        <button type="button" id="check" onclick="check()">Check!</button>
+    </div>
+    <p id="result">Press the check button to see equality.</p>
+    <h2>What</h2>
+    <p>This website checks the equality of two JS bytebeats, detecting minor differences like fractional
+        variations. This is useful for checking if minifications of bytebeats are correct or not (or just trying to
+        find cool new optimizations). </p>
+    <h2>it's so slow...</h2>
+    <p>This is not optimized for real-time playback. Unlike bytebeat players, this website runs the code for the
+        specified amount all at once, twice, without buffering or optimizations, and as such it is slightly slow with
+        complex code.</p>
+    <h2>What's the funny "hash" number</h2>
+    <p>Result of a bunch of math. It's used for comparing if the two are equal. If you wanna know what a hash is you
+        can google it, idk.</p>
+    <h2>Can I steal your code</h2>
+    <p>I can legally sue you if you do that. I probably won't, but I could.</p>
+    <h2>What does this have to do with GDI malware</h2>
+    <p>6 year old spotted</p>
+    <h2>Can you explain the above joke</h2>
+    <p>GDI malware is a type of software that uses Windows's GDI (Graphics Device Interface) API to display glitchy &
+        colorful effects, mostly paired with bytebeat audio. They are usually made for fun and uploaded to video
+        platforms (such as YouTube). However, most viewers are children ranging from ages of 5-12, and as they try to
+        find more info about GDI malware, they end up discovering bytebeat, and flocking to bytebeat communites, only to
+        flood them with low effort tinnitus-inducing codes and annoying everyone. They usually lump GDI malware together
+        with bytebeat, as if they are the same thing (they are not). That's the joke. You can laugh now.</p>
+    <h2>You wrote that with chatgpt</h2>
+    <p>No I didn't</p>
+    <h2>Who</h2>
+    <p><a href="/" style="color: white;">Butterroach!</a></p>
+</div>
+
+<script src="index.js"></script>
+</body>
+</html>

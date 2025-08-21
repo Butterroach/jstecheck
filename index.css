@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+@font-face {
+    font-family: "Dyuthi";
+    src: url("https://cdn.jsdelivr.net/gh/smc/Dyuthi/ttf/Dyuthi.ttf") format("truetype");
+}
+
+:root {
+    --accent-color: #8e58ff;
+}
+
+body {
+    background-color: #1e1e1e;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, label, button {
+    color: white;
+    text-align: center;
+}
+
+h1 {
+    font-family: "Dyuthi", sans-serif;
+}
+
+h2, h3, h4, h5, h6 {
+    font-family: "Noto Sans Display", sans-serif;
+}
+
+p, a, label, button {
+    font-family: "Noto Sans", sans-serif;
+}
+
+#main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+@media (max-width: 1023px) {
+    .horizontal {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .horizontal {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    }
+}
+
+.vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+textarea {
+    background-color: #0008;
+    color: #fff;
+    border-style: solid;
+    border-width: 1px;
+}
+
+button {
+    transition: background-color 0.2s, border-color 0.2s, border-width 0.2s, transform 0.2s;
+    border: var(--accent-color) solid 3px;
+    background-color: rgb(from var(--accent-color) calc(r / 4) calc(g / 4) calc(b / 3.5));
+    border-radius: 7px;
+    padding: 0.5rem 1rem;
+}
+
+button:hover {
+    transition: background-color 0.2s, border-color 0.2s, border-width 0.2s, transform 0.2s;
+    transform: scale(110%);
+    border-color: rgb(from var(--accent-color) calc(r / 1.5) calc(g / 1.5) calc(b / 1.5));
+    border-width: 2px;
+    background-color: rgb(from var(--accent-color) calc(r / 1) calc(g / 1) calc(b / 1.25));
+}
+
+#button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 3rem;
+    width: 10rem;
+    padding: 1rem;
+}
+
+button:active {
+    transition: background-color 0.2s, border-color 0.2s, border-width 0.2s, transform 0.2s;
+    border-color: #fff;
+    background-color: #000;
+    transform: scale(90%);
+    border-width: 5px;
+}
+
+#logo {
+    transition: 0.3s;
+}
+
+#logo:hover {
+    transition: 4s;
+    transform: scale(1.5);
+    box-shadow: 0 0 100px 500px var(--accent-color);
+    background-color: var(--accent-color);
+}
+
+#logo > source, #logo > img {
+    transition: 0.4s;
+}
+
+#logo:hover > source, #logo:hover > img {
+    transform: rotate(45deg);
+    transition: 3s;
+    opacity: 0;
+}
