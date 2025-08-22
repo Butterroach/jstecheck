@@ -27,7 +27,16 @@ function hashArray(arr) {
     return hash;
 }
 
-function makeSandbox(code, baseEnv = globalThis) {
+function mulberry32(a) {
+    return function() {
+        let t = a += 0x6D2B79F5;
+        t = Math.imul(t ^ (t >>> 15), t | 1);
+        t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    }
+}
+
+function makeSandbox(code, randomSeed, baseEnv = globalThis) {
     const env = new Proxy({}, {
         has: () => true, get: (target, prop) => {
             if (typeof prop === "symbol") return baseEnv[prop];
@@ -48,6 +57,13 @@ function makeSandbox(code, baseEnv = globalThis) {
 
     const func = new Function('env', 't', wrapped);
 
+    env.randomSeed = randomSeed;
+
+    with (env) {
+        Math.random = mulberry32(randomSeed);
+        random = Math.random;
+    }
+
     return {
         run: (t) => {
             baseEnv["t"] = t;
@@ -59,6 +75,7 @@ function makeSandbox(code, baseEnv = globalThis) {
 function check() {
     let code1 = document.getElementById("code1").value;
     let code2 = document.getElementById("code2").value;
+    const seed = Date.now();
     const resultText = document.getElementById("result");
     if (code1 === code2) {
         resultText.innerText = "The codes are the exact same. At least get a bit creative.";
@@ -80,8 +97,8 @@ function check() {
     if (/^eval\(unescape\(escape(?:`|\('|\("|\(`)(.*?)(?:`|'\)|"\)|`\)).replace\(\/u\(\.\.\)\/g,["'`]\$1%["'`]\)\)\)$/.test(code2.replaceAll(" ", ""))) {
         code2 = eval(code2.replace("eval", ""));
     }
-    let bytebeatFunc1 = makeSandbox(`return 0,\n${code1 || 0};`);
-    let bytebeatFunc2 = makeSandbox(`return 0,\n${code2 || 0};`);
+    let bytebeatFunc1 = makeSandbox(`return 0,\n${code1 || 0};`, seed);
+    let bytebeatFunc2 = makeSandbox(`return 0,\n${code2 || 0};`, seed);
     bytebeatFunc1.run(0);
     bytebeatFunc2.run(0);
     let t_jstecheck = 0;
