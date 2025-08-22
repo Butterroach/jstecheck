@@ -28,7 +28,7 @@ function hashArray(arr) {
 }
 
 function mulberry32(a) {
-    return function() {
+    return function () {
         let t = a += 0x6D2B79F5;
         t = Math.imul(t ^ (t >>> 15), t | 1);
         t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
@@ -59,9 +59,20 @@ function makeSandbox(code, randomSeed, baseEnv = globalThis) {
 
     env.randomSeed = randomSeed;
 
+    // noinspection WithStatementJS
     with (env) {
+        const fakeTime_jstecheck = "2025-08-22T06:09:07+03:00"
         Math.random = mulberry32(randomSeed);
         random = Math.random;
+        Date.now = () => new Date(fakeTime_jstecheck).getTime();
+        let OriginalDate_jstecheck = Date;
+        Date = class extends OriginalDate_jstecheck {
+            // noinspection JSAnnotator
+            constructor(...args) {
+                if (args.length === 0) return new OriginalDate_jstecheck(fakeTime_jstecheck);
+                return new OriginalDate_jstecheck(...args);
+            }
+        };
     }
 
     return {
