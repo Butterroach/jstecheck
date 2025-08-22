@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="512"
+   height="512"
+   viewBox="0 0 512 512"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <g
+     id="layer1">
+    <rect
+       style="fill:none;stroke:#8e58ff;stroke-width:26.0541;stroke-linecap:square;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="rect1"
+       width="439.60925"
+       height="439.60925"
+       x="36.195374"
+       y="36.195374" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:299.997px;line-height:0.5;font-family:'Noto Mono';-inkscape-font-specification:'Noto Mono';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#a478ff;fill-opacity:1;stroke:none;stroke-width:374.996;stroke-linecap:square;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       x="166.13283"
+       y="211.68895"
+       id="text2"><tspan
+         id="tspan2"
+         x="166.13283"
+         y="211.68895"
+         style="line-height:0.5;fill:#a478ff;fill-opacity:1;stroke-width:374.996">=</tspan><tspan
+         x="166.13283"
+         y="361.68744"
+         id="tspan3"
+         style="line-height:0.5;fill:#a478ff;fill-opacity:1;stroke-width:374.996">=</tspan><tspan
+         x="166.13283"
+         y="511.68597"
+         id="tspan4"
+         style="line-height:0.5;fill:#a478ff;fill-opacity:1;stroke-width:374.996">=</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:83.373px;line-height:0.5;font-family:Dyuthi;-inkscape-font-specification:Dyuthi;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#d9caff;fill-opacity:1;stroke:#241a41;stroke-width:12.1586;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers"
+       x="252.49899"
+       y="281.42307"
+       id="text5"><tspan
+         id="tspan5"
+         x="252.49899"
+         y="281.42307"
+         style="stroke:#241a41;stroke-width:12.1586;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers">JSteCheck</tspan></text>
+  </g>
+</svg>
