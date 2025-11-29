@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+<!--suppress HtmlUnknownTarget -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>JSteCheck</title>
-    <link rel="stylesheet" href="index.css"/>
+    <link rel="stylesheet" href="src/index.css"/>
     <link rel="icon" href="logo.svg" type="image/svg+xml">
     <link rel="icon" href="logo_128x128.webp" type="image/webp">
     <link rel="icon" href="logo_128x128.png" type="image/png">
@@ -20,7 +21,7 @@
         <source srcset="logo_128x128.png" type="image/png" width="256" height="256" media="(max-width: 600px)">
         <img src="destroyed.jpg" alt="" width="128" height="128" style="width: 256px; height: auto;">
     </picture>
-    <h1>JSteCheck v1.0.1</h1>
+    <h1>JSteCheck v<span id="version">ENABLE JAVASCIRPT WEIOGJWEGJWEOIGJWEOIG</span></h1>
 
     <div class="horizontal">
         <div class="vertical">
@@ -32,7 +33,7 @@
     </div>
     <div class="horizontal">
         <div class="vertical">
-            <label for="amount">Amount of samples to run & check: </label><input type="number" id="amount"
+            <label for="amount">Amount of samples to run & check: </label><input type="number" id="amount" min="1"
                                                                                  value="48000"/>
         </div>
         <div class="vertical">
@@ -40,26 +41,36 @@
             <option value="bb" selected>Bytebeat</option>
             <option value="sbb">Signed Bytebeat</option>
             <option value="fb">Floatbeat</option>
+            <option value="func">Funcbeat</option>
         </select>
         </div>
     </div>
     <div id="button-container">
-        <button type="button" id="check" onclick="check()">Check!</button>
+        <button type="button" id="check">Check!</button>
     </div>
-    <p id="result">Press the check button to see equality.</p>
+    <p id="hint">Press the check button to see equality.</p>
+    <div id="result" style="display: none">
+        <p>Code 1 hash: <code><span id="code-hash-1"></span></code></p>
+        <p>Code 2 hash: <code><span id="code-hash-2"></span></code></p>
+        <p>Equality: <code><span id="equality"></span></code></p>
+    </div>
     <h2>What</h2>
     <p>This website checks the equality of two JS bytebeats, detecting minor differences like fractional
         variations. This is useful for checking if minifications of bytebeats are correct or not (or just trying to
         find cool new optimizations). </p>
-    <h2>it's so slow...</h2>
-    <p>This is not optimized for real-time playback. Unlike bytebeat players, this website runs the code for the
-        specified amount all at once, twice, without buffering or optimizations, and as such it is slightly slow with
-        complex code.</p>
     <h2>What's the funny "hash" number</h2>
     <p>Result of a bunch of math. It's used for comparing if the two are equal. If you wanna know what a hash is you
         can google it, idk.</p>
+    <h2>Why do signed bytebeat and bytebeat return the same exact hash</h2>
+    <p>Because I treat them as the same exact mode. There is actually no difference between bytebeat and signed
+        bytebeat other than an offset, and that doesn't matter when comparing outputs.</p>
     <h2>Can I steal your code</h2>
-    <p>I can legally sue you if you do that. I probably won't, but I could.</p>
+    <p>I can sue you if you do that.</p>
+    <h2>Can I steal your logo</h2>
+    <p>I can't sue you on that one (I don't have money for trademarks), but I can utilize the power of public
+        shaming.</p>
+    <h2>Can I steal your colors</h2>
+    <p>sure</p>
     <h2>What does this have to do with GDI malware</h2>
     <p>6 year old spotted</p>
     <h2>Can you explain the above joke</h2>
@@ -75,6 +86,6 @@
     <p><a href="/" style="color: white;">Butterroach!</a></p>
 </div>
 
-<script src="index.js"></script>
+<script src="src/index.ts" type="module"></script>
 </body>
 </html>

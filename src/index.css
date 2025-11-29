@@ -13,8 +13,12 @@ body {
     background-color: #1e1e1e;
 }
 
-h1, h2, h3, h4, h5, h6, p, a, label, button {
+h1, h2, h3, h4, h5, h6, p:not(#result > p), a, label, button {
     color: white;
+    text-align: center;
+}
+
+#result > p {
     text-align: center;
 }
 
@@ -59,8 +63,11 @@ p, a, label, button {
     align-items: center;
 }
 
-textarea {
+textarea, code {
     background-color: #0008;
+}
+
+textarea {
     color: #fff;
     border-style: solid;
     border-width: 1px;
